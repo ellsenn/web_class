@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XI TKJ 1 — Cyberpunk Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071026;
+      --panel:rgba(255,255,255,0.03);
+      --neon-1:#00f0ff;
+      --neon-2:#ff00d0;
+      --accent:linear-gradient(90deg,var(--neon-1),var(--neon-2));
+      --glass: rgba(255,255,255,0.04);
+      --muted:#9aa3b2;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(0,240,255,0.06), transparent), radial-gradient(1000px 400px at 90% 90%, rgba(255,0,208,0.03), transparent), var(--bg); color:#e6f0ff}
+    header{display:flex;align-items:center;gap:18px;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px)}
+    .logo-wrap{display:flex;align-items:center;gap:12px}
+    /* SVG logo styling */
+    .site-title{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px;font-size:20px}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:#fff}
+
+    main{padding:36px 28px;max-width:1100px;margin:0 auto}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:26px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow: 0 6px 30px rgba(0,0,0,0.6)}
+    .hero h1{font-family:'Orbitron',sans-serif;margin:0;font-size:28px}
+    .meta{color:var(--muted);margin-top:8px;font-size:14px}
+    .tagline{margin-top:14px;color:#cfefff}
+    .search{margin-top:18px;display:flex;gap:8px}
+    .search input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .search button{padding:10px 14px;border-radius:10px;border:none;background:var(--neon-1);color:#012;background-image:linear-gradient(90deg,var(--neon-1),var(--neon-2));font-weight:700}
+
+    .logo-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+    .logo-panel small{display:block;color:var(--muted);margin-bottom:8px}
+
+    .articles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:var(--panel);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 8px 0;font-family:'Orbitron',sans-serif}
+    .card p{color:var(--muted);margin:0 0 12px 0}
+    .read{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);text-decoration:none;font-weight:600}
+
+    footer{max-width:1100px;margin:28px auto;padding:18px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);text-align:center}
+
+    /* neon outlines */
+    .neon-outline{position:relative}
+    .neon-outline:before{content:'';position:absolute;inset:-2px;border-radius:10px;background:linear-gradient(90deg,var(--neon-1),var(--neon-2));filter:blur(18px);opacity:0.22;z-index:-1}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .articles{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-wrap">
+      <!-- Embedded SVG logo (neon cyberpunk badge) -->
+       <img src="logo kelas.png" alt="Logo XI TKJ 1" style="width:64px;height:auto;filter:drop-shadow(0 0 8px #00ffff)">
+
+      <div>
+        <div class="site-title">XI TKJ 1</div>
+        <div style="font-size:12px;color:var(--muted)">Portal Materi & Artikel</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#artikel">Artikel</a>
+      <a href="#logo">Logo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Welcome in XI TKJ 1</h1>
+        <div class="meta">Sebuah situs kelas XI TKJ 1</div>
+        <div class="tagline">Bahan pembelajaran praktis, dan contoh konfigurasi jaringan.</div>
+
+        <div class="search">
+          <input id="q" placeholder="Cari artikel, materi, atau kata kunci..." />
+          <button onclick="search()">Cari</button>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">Contoh topik: Dasar Jaringan • Subnetting • Keamanan Jaringan • Konfigurasi Router</div>
+      </div>
+
+      <aside class="logo-panel" id="logo">
+        <small>Logo Kelas</small>
+        <!-- Larger SVG logo preview -->
+         <div style="display:flex;justify-content:center;margin-bottom:10px">
+  <img src="logo kelas.png" alt="Logo XI TKJ 1" style="width:140px;height:auto;filter:drop-shadow(0 0 15px #00ffff)">
+</div>
+
+        <a class="read" href="#" onclick="downloadSVG(event)">Unduh Logo (SVG)</a>
+      </aside>
+    </section>
+
+    <section id="artikel">
+      <h2 style="font-family:'Orbitron',sans-serif">Artikel singkat</h2>
+      <p style="color:var(--muted);margin-top:6px">Materi singkat dan artikel yang cocok untuk tugas atau pengetahuan praktis.</p>
+
+      <div class="articles" style="margin-top:14px">
+        <article class="card">
+          <h3>Dasar Jaringan Komputer</h3>
+          <p>Pengertian topologi, perangkat jaringan (switch, router, access point), dan cara kerja protokol dasar.</p>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Penulis: XI TKJ 1 • 13 Nov 2025</div>
+          <a class="read" href="#" onclick="openArticle('a1')">Baca</a>
+        </article>
+
+        <article class="card">
+          <h3>Konfigurasi Router Dasar (Praktikum)</h3>
+          <p>Langkah praktis konfigurasi IP, DHCP, dan routing statis pada perangkat router untuk jaringan kelas.</p>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Penulis: XI TKJ 1 • 10 Nov 2025</div>
+          <a class="read" href="#" onclick="openArticle('a2')">Baca</a>
+        </article>
+
+        <article class="card">
+          <h3>Keamanan Jaringan untuk Pemula</h3>
+          <p>Dasar-dasar keamanan: autentikasi, firewall, VLAN, dan praktik terbaik untuk melindungi jaringan sekolah.</p>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Penulis: XI TKJ 1 • 8 Nov 2025</div>
+          <a class="read" href="#" onclick="openArticle('a3')">Baca</a>
+        </article>
+
+        <article class="card">
+          <h3>Subnetting Cepat: Contoh & Latihan</h3>
+          <p>Contoh pembagian subnet IP kelas C menjadi beberapa subnet untuk skenario praktikum.</p>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Penulis: XI TKJ 1 • 5 Nov 2025</div>
+          <a class="read" href="#" onclick="openArticle('a4')">Baca</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Hidden article modals (simple) -->
+    <div id="modal" style="display:none;position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.85));align-items:center;justify-content:center;padding:24px">
+      <div id="modal-card" style="max-width:900px;background:var(--panel);padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(0,0,0,0.6);color:#eaf6ff;max-height:86vh;overflow:auto">
+        <button onclick="closeModal()" style="float:right;background:none;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:6px 8px;border-radius:8px">Tutup</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    © XI TKJ 1 — Portal Cyberpunk • Dibuat untuk tujuan pembelajaran
+  </footer>
+
+  <script>
+    const articles = {
+      a1: `
+        <h2>Dasar Jaringan Komputer</h2>
+        <p>Topologi, perangkat jaringan, dan protokol dasar adalah fondasi yang harus dipahami. <strong>Topologi</strong> seperti star, bus dan ring memiliki kelebihan dan kekurangan di lingkungan praktikum. Perangkat seperti <em>switch</em> berfungsi untuk menghubungkan banyak perangkat dalam satu jaringan lokal, sedangkan <em>router</em> menghubungkan beberapa jaringan dan meneruskan paket antar jaringan.</p>
+        <h4>Perangkat penting</h4>
+        <ul>
+          <li>Switch — layer 2, menghubungkan host</li>
+          <li>Router — meneruskan paket antar jaringan</li>
+          <li>Access point — menyediakan koneksi nirkabel</li>
+        </ul>
+      `,
+      a2: `
+        <h2>Konfigurasi Router Dasar (Praktikum)</h2>
+        <p>Contoh langkah sederhana di router: mengatur hostname, interface IP, dan DHCP pool.</p>
+        <pre style="background:#031424;padding:10px;border-radius:8px;overflow:auto">Router&gt; enable
+Router# configure terminal
+Router(config)# hostname R1
+R1(config)# interface gigabitEthernet0/0
+R1(config-if)# ip address 192.168.10.1 255.255.255.0
+R1(config-if)# no shutdown
+R1(config)# ip dhcp pool KELAS
+R1(dhcp-config)# network 192.168.10.0 255.255.255.0
+R1(dhcp-config)# default-router 192.168.10.1
+</pre>
+      `,
+      a3: `
+        <h2>Keamanan Jaringan untuk Pemula</h2>
+        <p>Langkah awal keamanan: ubah password default, aktifkan firewall, buat VLAN untuk memisahkan perangkat tamu dan perangkat lab, dan gunakan update perangkat secara berkala.</p>
+        <h4>Praktik cepat</h4>
+        <ol>
+          <li>Nonaktifkan layanan yang tidak perlu</li>
+          <li>Gunakan password yang kuat pada perangkat</li>
+          <li>Segmentasi jaringan (VLAN)</li>
+        </ol>
+      `,
+      a4: `
+        <h2>Subnetting Cepat</h2>
+        <p>Contoh: bagi jaringan 192.168.10.0/24 menjadi 4 subnet.</p>
+        <p>Dengan /26 tiap subnet menyediakan 64 alamat (62 host):</p>
+        <ul>
+          <li>192.168.10.0 /26 (hosts 1-62)</li>
+          <li>192.168.10.64 /26 (hosts 65-126)</li>
+          <li>192.168.10.128 /26 (hosts 129-190)</li>
+          <li>192.168.10.192 /26 (hosts 193-254)</li>
+        </ul>
+      `
+    };
+
+    function openArticle(key){
+      document.getElementById('modal-content').innerHTML = articles[key] || '<p>Artikel tidak ditemukan.</p>';
+      const m = document.getElementById('modal');
+      m.style.display = 'flex';
+    }
+    function closeModal(){document.getElementById('modal').style.display='none'}
+
+    function search(){
+      const q = document.getElementById('q').value.toLowerCase();
+      let results = Object.keys(articles).filter(k=>articles[k].toLowerCase().includes(q));
+      if(!q) return alert('Ketik kata kunci untuk mencari.');
+      if(results.length===0) return alert('Tidak ditemukan artikel cocok.');
+      openArticle(results[0]);
+    }
+
+    // Download the SVG logo as file
+    function downloadSVG(e){
+      e.preventDefault();
+      const svg = `<?xml version="1.0" encoding="utf-8"?>\n` + document.querySelector('.logo-panel svg').outerHTML;
+      const blob = new Blob([svg], {type: 'image/svg+xml;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'logo_xi_tkj_1.svg';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
